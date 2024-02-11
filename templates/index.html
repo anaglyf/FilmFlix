@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 id="welcomeHeader">{% block title %} Welcome to the FilmFlix Database {% endblock %}</h1>
+<div id="dbButtons">
+    <div id="subOptions">
+        <button class="btn btn-secondary" id="getFilmsButton">Refresh Films</button>
+        <button class="btn btn-secondary" id="toggleFilmsButton" style="display:none;">Hide Films</button>
+        <button type="button" id="addButton" class="btn btn-primary" onclick="">Add New Record</button>
+        <button type="button" id="reportButton" class="btn btn-primary" onclick="">Report Menu</button>
+    </div>
+
+    <select id="sortDropdown">
+        <option value="filmID">Sort by Added</option>
+        <option value="title">Sort by Title</option>
+        <option value="yearReleased">Sort by Year</option>
+        <option value="rating">Sort by Rating</option>
+    </select>
+
+    <select id="sortOrder">
+        <option id="sortAsc" value="ASC">Ascending</option>
+        <option id="sortDesc" value="DESC">Descending</option>
+    </select>
+
+    <div id="searchBar">
+        <input type="text" id="searchInput" placeholder="Search Films">
+        <button id="searchButton">Search</button>
+    </div>
+</div>
+<div id="addForm" style="display:none;">
+    <form id="addFormContent" action="/add_film/" method="post">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="yearReleased">Year:</label>
+            <input type="text" class="form-control" id="yearReleased" name="yearReleased" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="text" class="form-control" id="rating" name="rating" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" class="form-control" id="duration" name="duration" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class="form-control" id="genre" name="genre" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="imageURL">Image URL:</label>
+            <input type="text" class="form-control" id="imageURL" name="imageURL" value="">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Add Record">
+        <button type="button" class="btn btn-secondary" onclick="resetAndHideAddForm()">Cancel</button>
+    </form>
+</div>
+<div id="reportForm">
+    <form id="reportFormContent" action="">
+        <div class="form-group">    
+            <label for="searchBarRep">Search:</label>
+            <input type="text" class="form-control" id="reportSearch" name="reportSearch" value="">
+        </div>
+        <select name="category" id="reportCategory">
+            <option value="yearReleased">Year</option>
+            <option value="rating">Rating</option>
+            <option value="genre">Genre</option>
+        </select>
+        <button type="button" class="btn btn-secondary" onclick="resetAndHideReportForm()">Cancel</button>
+        <button type="button" id="reportSubmit" class="btn btn-primary" value="Get Report">Submit</button>
+    </form>
+</div>
+<div id="filmsContainer" style="display:none;"></div>
+
+
+{% endblock %}

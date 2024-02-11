@@ -1,0 +1,244 @@
+@media (max-width: 768px) {
+    .info-grid>span {
+        font-size: smaller;
+        /* Or a specific size like 12px */
+    }
+    
+    #dbButtons>button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    #subOptions > button {
+        font-size: 12px;
+        width: 30%
+    }
+
+    #combinedContainer {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .poster-container,
+    .info-container {
+        flex: 0 0 auto;
+        /* Adjust width for smaller screens */
+    }
+}
+
+@font-face {
+    font-family: 'Theater';
+    src: url(Theater_Bold.otf);
+}
+
+#greennav {
+    background-color: #00f703;
+}
+
+body {
+    background-color: rgb(8, 48, 75);
+}
+
+#logoFF{
+    display: block;
+    width: 20%;
+    margin: 0;
+}
+
+
+#combinedContainer {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    /* Two rows: auto height for the first, remaining space for the second */
+    grid-template-columns: 1fr;
+    /* One column */
+    margin: 0 auto;
+    /* Center the container */
+    max-width: max-content;
+    /* Maximum width */
+    width: inherit;
+    /* Auto width for flexibility */
+    gap: 20px;
+    /* Space between grid items */
+}
+
+.combined-grid {
+    display: grid;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 4%;
+}
+
+.poster-container {
+    grid-row: 2;
+    /* Place in the second row */
+    grid-column: 1;
+    /* Span the full column */
+    width: 100%;
+    /* Full width */
+}
+
+.container {
+    background-color: rgb(228, 241, 207);
+    backdrop-filter: blur(10px);
+    height: 100%;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 400px;
+    /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+.info-container {
+    grid-row: 1;
+    /* Place in the first row */
+    grid-column: 1;
+    /* Span the full column */
+    width: 100%;
+    /* Full width */
+}
+
+.info-grid {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border-left: 30vw;
+    margin-bottom: 0.5%;
+    justify-content: space-around;
+    background: black;
+    color: antiquewhite;
+}
+
+#welcomeHeader {
+    padding-bottom: 1%;
+}
+
+.info-grid > span {
+    font-size: larger;
+    font-weight: 500;
+}
+
+.sub_title {
+    display: flex;
+    flex-direction: row;
+    border-spacing: 1%;
+}
+
+.poster {
+    width: 100%;
+    /* Make the image responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    max-height: 100vh;
+    /* Maximum height to fit in the viewport */
+}
+
+#movieTitle {
+    font-family: 'Theater';
+    font-size: 500%;
+    margin: 0%;
+}
+
+#dbIndex {
+    display: none;
+}
+
+#reportForm {
+    display: none;
+    padding-bottom: 1%;
+}
+
+#dbButtons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+        /* Allows items to move to the next line on small screens */
+    /* Aligns items vertically */
+    padding-bottom: 2%;
+    width: 100%;
+    gap: 10px;
+    /* Adds space between elements */
+}
+
+#dbButtons>button {
+    min-width: 80px;
+    /* Adjust as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+        /* Adds "..." to text that's too long */
+}
+
+.info-grid>span {
+    font-size: calc(10px + 0.5vw);
+    /* Adjust base size and scaling factor as needed */
+}
+
+#dbButtons>* {
+    flex-grow: 1;
+    /* Allows elements to grow */
+    flex-shrink: 1;
+    /* Allows elements to shrink */
+    height: 40px;
+    /* Uniform height */
+    min-width: 50px;
+    /* Minimum width */
+    max-width: 100%;
+    /* Ensures it doesn't grow beyond container */
+}
+
+#searchBar {
+    display: flex;
+    align-items: center;
+}
+
+#searchBar input,
+#searchBar button {
+    height: 100%;
+}
+
+#searchBar form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Adjust as needed */
+}
+
+#dbButtons > button {
+    border: 30%;
+    margin-right: 0.3%;
+}
+
+#edit-div {
+    width: 100%;
+    font-size: 70%;
+    position: sticky;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    width: 150px;
+    /* Adjust this width as needed */
+    margin-right: 10px;
+}
+
+.form-group input {
+    flex-grow: 1;
+}
+
+#searchBar, #sortDropdown, #sortOrder {
+    margin-right: 0.3%;
+}
+
+#addFormContent {
+    padding-bottom: 1%;
+}

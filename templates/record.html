@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 id="movieTitle">{% block title %} {{ rec[1] }} {% endblock %}</h2>
+<div class="sub_title">
+    <span class="badge badge-primary">{{ rec[2] }}</span>
+    <div id="edit-div">
+        <button id="editButton">Edit Record</button>
+    </div>    
+</div>
+
+<div id="editForm" style="display:none;">
+    <form id="editFormContent" action="/update_film/{{ rec[0] }}" method="post">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ rec[1] }}">
+        </div>
+
+        <div class="form-group">
+            <label for="yearReleased">Year:</label>
+            <input type="text" class="form-control" id="yearReleased" name="yearReleased" value="{{ rec[2] }}">
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="text" class="form-control" id="rating" name="rating" value="{{ rec[3] }}">
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" class="form-control" id="duration" name="duration" value="{{ rec[4] }}">
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class="form-control" id="genre" name="genre" value="{{ rec[5] }}">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Update Record">
+        <button type="button" id="deleteButton" class="btn btn-secondary" onclick="">Delete Record</button>
+        <button type="button" class="btn btn-secondary" onclick="resetAndHideForm()">Cancel</button>
+    </form>
+</div>
+<div id="combinedContainer">
+    <div class="combined-grid">
+        <div class="info-container">
+            <div class="info-grid">
+                <span>{{ rec[3] }}</span>
+                <span>{{ rec[4] }}m</span>
+                <span>{{ rec[5] }}</span>
+            </div>
+            <!-- Other content like edit div goes here -->
+        </div>
+        <div class="poster-container">
+            <img class="poster" src="{{ rec[6] }}" alt="Poster">
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}
